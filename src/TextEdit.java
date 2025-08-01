@@ -10,6 +10,9 @@ public class TextEdit extends JFrame implements ActionListener {
     JScrollPane scrollPane;
     JSpinner fontSizeSpinner;
     JLabel fontLabel;
+    JButton fontColorButton;
+    JComboBox fontBox;
+
 
     //Create a constructor
     TextEdit(){
@@ -45,13 +48,39 @@ public class TextEdit extends JFrame implements ActionListener {
                 textArea.setFont(new Font(textArea.getFont().getFamily(),Font.PLAIN,(int) fontSizeSpinner.getValue()));
             }
         });
+
+        //Used to change the color of the font using a button
+        fontColorButton = new JButton("Color");
+        fontColorButton.addActionListener(this);
+
+        // Creating a array of strings to give the user the option to pick a font
+        String[] fonts = GraphicsEnvironment.getLocalGraphicsEnvironment().getAvailableFontFamilyNames(); // This will take all the font available in java and assign to the string fonts
+        fontBox = new JComboBox(fonts);
+        fontBox.addActionListener(this);
+        fontBox.setSelectedItem("Arial");
+
+
+
         this.add(fontLabel);
         this.add(fontSizeSpinner);
+        this.add(fontColorButton);
+        this.add(fontBox);
         this.add(scrollPane);
         this.setVisible(true);
     }
     @Override
     public void actionPerformed(ActionEvent e){
+
+        // This let the user change the color of the text using a button
+        if(e.getSource() == fontColorButton){
+            JColorChooser colorChooser = new JColorChooser();
+            Color color = JColorChooser.showDialog(null,"Choose a color",Color.BLACK);
+            textArea.setForeground(color);
+        }
+
+        if(e.getSource() == fontBox){
+            textArea.setFont(new Font((String)fontBox.getSelectedItem(),Font.PLAIN,textArea.getFont().getSize()));
+        }
 
     }
 
