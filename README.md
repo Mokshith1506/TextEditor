@@ -1,4 +1,4 @@
-# 📝 Java Text Editor - Fitco Mini Project
+# 📝 Java Text Editor
 
 A simple yet functional **Text Editor** built using **Java Swing**. This project helped me strengthen my basics in Java GUI programming, event handling, file operations, and overall application design.
 
