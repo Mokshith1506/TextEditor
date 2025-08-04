@@ -18,7 +18,7 @@ A simple yet functional **Text Editor** built using **Java Swing**. This project
 ## 🛠️ Technologies Used
 
 - Java SE
-- Swing (JFrame, JTextArea, JMenuBar, JComboBox, JColorChooser, etc.)
+- Swing (JFrame, JTextArea, JMenuBar, JComboBox, JColorChooser, etc)
 - AWT for layout and event handling
 
 ---
